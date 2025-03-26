@@ -11,7 +11,7 @@ const app = express()
 app.use(cors())
 
 // Serve React build
-app.use(express.static(path.join(__dirname, '..', 'client', 'dist')))
+// app.use(express.static(path.join(__dirname, '..', 'client', 'dist')))
 
 const server = http.createServer(app)
 
@@ -47,9 +47,9 @@ io.on('connection', (socket) => {
   })
 })
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'client', 'dist', 'index.html'))
-})
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '..', 'client', 'dist', 'index.html'))
+// })
 
 server.listen(5000, () => {
   console.log('Server running on port 5000')
